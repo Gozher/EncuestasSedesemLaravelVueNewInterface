@@ -16,31 +16,22 @@ class GraficasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   
-        
-        //$var = $request->input("pregunta");
+    {               
         $cantidad = $request->input("cantidad");
 
         $pregunta1 = Encuesta::
         join('preguntas', 'encuestas.fk_pregunta', '=', 'preguntas.id')
         ->join('respuestas', 'encuestas.fk_respuesta', '=', 'respuestas.id')
         ->select('respuestas.respuesta',DB::raw('COUNT(encuestas.fk_respuesta) as fk_respuesta'),'preguntas.id')
-        ->where('encuestas.fk_pregunta','=',$cantidad)
-        //->where('encuestas.fk_pregunta','=',1)
-        ->groupBy('encuestas.fk_respuesta','preguntas.id')               
+        ->where('encuestas.fk_pregunta','=',$cantidad)        
+        ->groupBy('encuestas.fk_respuesta','preguntas.id','respuestas.respuesta')               
         ->get();
 
         $preguntas = Preguntas::where('status','=',1)->get();
-
-        //$titulo = Preguntas::where('id','=',$cantidad)->get();
+        
         $titulo = Preguntas::find($cantidad);
 
-        return view('Graficas',compact('pregunta1','preguntas','titulo'));
-        //return response()->json($pregunta1);
-        
-        //return view('Graficas',compact('pregunta1'));
-        
-
+        return view('Graficas',compact('pregunta1','preguntas','titulo'));            
     }
 
     /**
@@ -50,8 +41,10 @@ class GraficasController extends Controller
      */
     public function create()
     {
-                               
-        return view('Graficas');
+                         
+        $preguntas = Preguntas::where('status','=',1)->get();                       
+          return view('graficasPost',compact('preguntas'));
+
         //return view('Graficas');                
     }
 

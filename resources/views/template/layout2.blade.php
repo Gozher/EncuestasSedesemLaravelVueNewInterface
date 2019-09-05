@@ -9,6 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <script src="{{asset('js/loader-chart-google.js')}}"></script>
+    <script src="{{asset('js/loader-google-charts-bar.js')}}"></script>
+    <script src="{{asset('js/jsapi-chart-google.js')}}"></script>
+
   <title>Concurso</title>
 
   <!-- Custom fonts for this template-->
@@ -126,7 +130,7 @@
         <div id="collapseUtilitiesCuatro" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones</h6>
-            <a class="collapse-item" href="{{route('Graficas.index')}}">Ver graficas</a>            
+            <a class="collapse-item" href="{{route('Graficas.create')}}">Ver graficas</a>            
           </div>
         </div>
       </li>
