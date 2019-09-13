@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Encuesta;
 use App\Preguntas;
 use Illuminate\Http\Request;
+//use Carbon\Carbon;
+
 
 class EncuestaController extends Controller
 {
@@ -41,10 +43,14 @@ class EncuestaController extends Controller
     public function store(Request $request)
     {
         //
+         
+        //$date = Carbon::now();
+
         $encuesta = new Encuesta();
         $encuesta->fk_beneficiario = $request->fk_beneficiario;
         $encuesta->fk_pregunta = $request->fk_pregunta; 
         $encuesta->fk_respuesta = $request->fk_respuesta; 
+        //$encuesta->created_at = $date;
         $encuesta->save();
     }
 

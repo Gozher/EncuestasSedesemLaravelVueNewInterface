@@ -16,9 +16,7 @@
                                 <th scope="col">Genero</th>
                                 <th scope="col">Colonia</th>
                                 <th scope="col">Direccion</th>
-                                <th scope="col">Entrevistar</th>
-    
-    
+                                <th scope="col">Entrevistar</th>        
                             </tr>
                         </thead>
                         <tbody class="table-info">
@@ -113,7 +111,7 @@
                                 <button v-if="condicion=='1' && pregunta=='1' " class="btn btn-info" slot="next" @click="saveEntrevista2()">Siguiente</button>
     
                                 <button v-if="condicion=='1'" class="btn btn-info" slot="finish" @click="closeModal()">Terminar</button>
-                                <button v-if="condicion=='2'" class="btn btn-info" slot="finish" @click="closeModal2()">Terminar no estuvo</button>
+                                <button v-if="condicion=='2'" class="btn btn-info" slot="finish" @click="closeModal2()">Terminar</button>
     
                             </form-wizard>
     
@@ -123,7 +121,7 @@
     
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
                     </div>
                 </div>
             </div>

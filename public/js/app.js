@@ -75172,7 +75172,7 @@ var render = function() {
                                 },
                                 slot: "finish"
                               },
-                              [_vm._v("Terminar no estuvo")]
+                              [_vm._v("Terminar")]
                             )
                           : _vm._e()
                       ],
@@ -75185,7 +75185,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _c("div", { staticClass: "modal-footer" })
             ])
           ]
         )
@@ -75238,21 +75238,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
       )
     ])
   }
@@ -88808,8 +88793,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xamp\htdocs\EncuestasSedesemLaravelVueNewInterface\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xamp\htdocs\EncuestasSedesemLaravelVueNewInterface\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/alan/Documentos/laravel/cambio_de_template/EncuestasSedesemLaravelVUe/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/alan/Documentos/laravel/cambio_de_template/EncuestasSedesemLaravelVUe/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

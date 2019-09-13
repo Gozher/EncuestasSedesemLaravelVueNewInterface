@@ -13,13 +13,13 @@ google.setOnLoadCallback(dibujarGrafico);
 function dibujarGrafico() {
 // Tabla de datos: valores y etiquetas de la gráfica
 var data = google.visualization.arrayToDataTable([
-['Texto', 'Entrevistados'],
+['Texto', 'Entrevistados',{ role: 'annotation' }],
 @foreach($pregunta1 as $pre1)
-['{{$pre1->respuesta}}', {{$pre1->fk_respuesta}}],
+['{{$pre1->respuesta}}', {{$pre1->fk_respuesta}},'{{ ($pre1->fk_respuesta / $varTotal) * 100 }}%'],
 @endforeach
 ]);
 var options = {
-title: ''
+title: '{{$titulo->pregunta}}'
 //Ejemplo con Google Charts: Gráfico de barras
 }
 // Dibujar el gráfico
@@ -33,36 +33,82 @@ document.getElementById('GraficoGoogleChart-ejemplo-1')
 
 
 
-
+<div class="row">
 <div class="col-sm-6">
-      <div class="form-group">
+
+  <div class="form-group">
         
     <form action="/graf" method="post">
-        {{ csrf_field() }}
+          {{ csrf_field() }}
 
-        <div class="col-sm-10">
-      <div class="form-group">
-        <label>Seleccione grafica</label>
+      <div class="col-sm-10">
+        <div class="form-group">
+          <label>Seleccione grafica</label>
 
-        <select class="form-control" name="cantidad">
+          <select class="form-control" name="cantidad">
 
-          @foreach($preguntas as $pre)
-            <option value="{{ $pre->id}}"> pregunta ({{ $pre->id}}) {{ $pre->pregunta}}</option>   			
-          @endforeach
-        </select>   
+            @foreach($preguntas as $pre)
+              <option value="{{ $pre->id}}"> pregunta {{ $pre->id}}: {{ $pre->pregunta}}</option>   			
+            @endforeach
+          </select>   
+        </div>
+        <button type="submit" class="btn btn-success btn-lg btn-block">Mostrar</button>              
       </div>
 
-    </div>
-
-        <button type="submit" class="btn btn-success btn-lg btn-block">Mostrar</button>              
+          
     </form>
 
-  
-      </div>      
+  </div>    
+</div>
+<div class="col-sm-6">
+<br>
 
-    </div>
+<!--cantidad de la muestra total de registros por mes: {{$varTotal}} <br>
+cantidad de la muestra  de entrevistados: {{$varEntrevistados}} <br>
+porcenajes de entrevistados : {{$varEntrevistados / $varTotal * 100}}% <br>
+porcenajes de los NO entrevistados : {{($varTotal-$varEntrevistados) / $varTotal * 100}}% <br>-->
 
-    <div id="GraficoGoogleChart-ejemplo-1" style="width: 800px; height: 600px"></div>
+
+<table class="table table-sm">
+  <thead class="thead-dark">
+    <tr>
+      
+      <th scope="col">Criterio</th>
+      <th scope="col">Unidades</th>
+      <th scope="col">Procentaje</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>    
+      <td>Total de la Muestra</td>
+      <td>{{$varTotal}}</td>
+      <td>100%</td>
+    </tr>
+
+    <tr>    
+      <td>Entrevistados</td>
+      <td>{{$varEntrevistados}}</td>
+      <td>{{$varEntrevistados / $varTotal * 100}}%</td>
+    </tr>
+
+    <tr>    
+      <td>No Entrevistados</td>
+      <td>{{($varTotal-$varEntrevistados)}}</td>
+      <td>{{($varTotal-$varEntrevistados) / $varTotal * 100}}%</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<div class="row justify-content-center">
+    <div id="GraficoGoogleChart-ejemplo-1" style="width: 900px; height: 400px"></div>
+</div>
+
+    
 
 
 

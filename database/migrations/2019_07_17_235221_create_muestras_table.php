@@ -16,6 +16,7 @@ class CreateMuestrasTable extends Migration
         Schema::create('muestras', function (Blueprint $table) {
             $table->increments('id');   
             $table->string('FolioRel');
+            $table->string('Programa');
             $table->string('Municipio');
             $table->string('ApellidoPaterno');
             $table->string('ApellidoMaterno');

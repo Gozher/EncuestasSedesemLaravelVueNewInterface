@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Graficas;
 use App\Preguntas;
 use App\Encuesta;
+use App\Muestra;
 use Illuminate\Http\Request;
 
 class GraficasController extends Controller
@@ -17,6 +18,20 @@ class GraficasController extends Controller
      */
     public function index(Request $request)
     {               
+
+
+        $cantidadM = Muestra::whereBetween('created_at', ['2019-09-09','2019-09-11'])->get(); // total de la muestra por mes
+
+        $varTotal = 0;
+        $varEntrevistados = 0;
+        foreach ($cantidadM as $key => $can) {
+
+            if($can->status == 1){
+                $varEntrevistados++;
+            }
+            $varTotal++;
+        }
+
         $cantidad = $request->input("cantidad");
 
         $pregunta1 = Encuesta::
@@ -26,12 +41,12 @@ class GraficasController extends Controller
         ->where('encuestas.fk_pregunta','=',$cantidad)        
         ->groupBy('encuestas.fk_respuesta','preguntas.id','respuestas.respuesta')               
         ->get();
-
+    
         $preguntas = Preguntas::where('status','=',1)->get();
         
         $titulo = Preguntas::find($cantidad);
 
-        return view('Graficas',compact('pregunta1','preguntas','titulo'));            
+        return view('Graficas',compact('pregunta1','preguntas','titulo','varEntrevistados','varTotal'));
     }
 
     /**

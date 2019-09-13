@@ -26,12 +26,13 @@ class ExcelController extends Controller
             //$user->name = $row->nombre;
             //$user->email = $row->email;
 
-            $user->FolioRel        = $row->folio_relacionado;
-            $user->Municipio       = $row->municipio;
-            $user->ApellidoPaterno = $row->primer_ap;
-            $user->ApellidoMaterno = $row->segundo_ap;
-            $user->Nombre          = $row->nombres;
-            $user->genero          = $row->genero;
+            $user->FolioRel         = $row->folio_relacionado;
+            $user->Programa         = $row->programa;
+            $user->Municipio        = $row->municipio;
+            $user->ApellidoPaterno  = $row->primer_ap;
+            $user->ApellidoMaterno  = $row->segundo_ap;
+            $user->Nombre           = $row->nombres;
+            $user->genero           = $row->genero;
             $user->localidad        = $row->localidad;
             $user->colonia          = $row->colonia;
             $user->calle            = $row->calle;

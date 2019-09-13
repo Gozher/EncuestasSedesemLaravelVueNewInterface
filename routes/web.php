@@ -43,6 +43,11 @@ Route::get('/import-excel', 'ExcelController@viewImport')->name('importGet');
 Route::post('/import-excel', 'ExcelController@importUsers')->name('importPost');;
 
 
+Route::resource('GraficasPorcentajes', 'GraficasPorcentajesController',['except' => ['edit','update','destroy','show']]);
+
+
+
+
 // RUTAS DEL EJEMPLO DE VUE
 
 Route::get('/tareas', 'TaskController@index');

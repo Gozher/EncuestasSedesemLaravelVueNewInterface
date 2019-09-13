@@ -1,5 +1,4 @@
 
-
 @extends('template.layout2')
 
 @section('content')
@@ -13,6 +12,8 @@
 </div>
 
 @endif
+
+
 
 <div class="row">
     <form method="post" action="/import-excel" enctype="multipart/form-data">
