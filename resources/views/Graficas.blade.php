@@ -1,6 +1,12 @@
-@extends('template.layout2')
+@extends('template.layout')
 
 @section('content')
+
+
+@php($NoEntrevistados = ($varTotal-$varEntrevistados) / $varTotal * 100)
+@php($Entrevistados = $varEntrevistados / $varTotal * 100)  
+
+
 
 
 <head>
@@ -15,7 +21,8 @@ function dibujarGrafico() {
 var data = google.visualization.arrayToDataTable([
 ['Texto', 'Entrevistados',{ role: 'annotation' }],
 @foreach($pregunta1 as $pre1)
-['{{$pre1->respuesta}}', {{$pre1->fk_respuesta}},'{{ ($pre1->fk_respuesta / $varTotal) * 100 }}%'],
+@php( $porcentaje  = ($pre1->fk_respuesta / $varTotal) * 100)  // se creo aqui la variable por la cuestion del ciclo
+['{{$pre1->respuesta}}', {{$pre1->fk_respuesta}},'{{ round($porcentaje,2)}}%'],
 @endforeach
 ]);
 var options = {
@@ -63,11 +70,6 @@ document.getElementById('GraficoGoogleChart-ejemplo-1')
 <div class="col-sm-6">
 <br>
 
-<!--cantidad de la muestra total de registros por mes: {{$varTotal}} <br>
-cantidad de la muestra  de entrevistados: {{$varEntrevistados}} <br>
-porcenajes de entrevistados : {{$varEntrevistados / $varTotal * 100}}% <br>
-porcenajes de los NO entrevistados : {{($varTotal-$varEntrevistados) / $varTotal * 100}}% <br>-->
-
 
 <table class="table table-sm">
   <thead class="thead-dark">
@@ -88,14 +90,14 @@ porcenajes de los NO entrevistados : {{($varTotal-$varEntrevistados) / $varTotal
 
     <tr>    
       <td>Entrevistados</td>
-      <td>{{$varEntrevistados}}</td>
-      <td>{{$varEntrevistados / $varTotal * 100}}%</td>
+      <td>{{$varEntrevistados}}</td>                  
+      <td>{{round($Entrevistados,2)}}%</td>
     </tr>
 
     <tr>    
       <td>No Entrevistados</td>
-      <td>{{($varTotal-$varEntrevistados)}}</td>
-      <td>{{($varTotal-$varEntrevistados) / $varTotal * 100}}%</td>
+      <td>{{($varTotal-$varEntrevistados)}}</td>      
+      <td>{{round($NoEntrevistados,2)}}%
     </tr>
 
   </tbody>
@@ -113,6 +115,7 @@ porcenajes de los NO entrevistados : {{($varTotal-$varEntrevistados) / $varTotal
 
 
 @endsection
+
 
 
 

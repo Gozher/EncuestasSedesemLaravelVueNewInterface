@@ -92,13 +92,10 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones</h6>
             <a class="collapse-item" href="{{route('Preguntas.create')}}">Crear pregunta</a>
-            <a class="collapse-item" href="{{route('Respuestas.create')}}">Crear respuestas</a>
-            
+            <a class="collapse-item" href="{{route('Respuestas.create')}}">Crear respuestas</a>            
           </div>
         </div>
       </li>
-
-
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -131,7 +128,7 @@
         <div id="collapseUtilitiesCuatro" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones</h6>
-            <a class="collapse-item" href="{{route('Graficas.create')}}">Ver graficas</a>            
+            <a class="collapse-item" href="{{route('Graficas.create')}}"  >Ver graficas</a>            
             <a class="collapse-item" href="{{route('GraficasPorcentajes.index')}}">graficas personalizadas</a> 
           </div>
         </div>
@@ -177,8 +174,6 @@
 
 
             <div class="topbar-divider d-none d-sm-block"></div>
-
-
 
                                <!-- Authentication Links-->
                                @guest

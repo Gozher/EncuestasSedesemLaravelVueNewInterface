@@ -20,7 +20,7 @@ class GraficasController extends Controller
     {               
 
 
-        $cantidadM = Muestra::whereBetween('created_at', ['2019-09-09','2019-09-11'])->get(); // total de la muestra por mes
+        $cantidadM = Muestra::whereBetween('created_at', ['2019-09-01','2019-09-30'])->get(); // total de la muestra por mes
 
         $varTotal = 0;
         $varEntrevistados = 0;

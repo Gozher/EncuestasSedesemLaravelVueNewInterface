@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/template', function () {
     //return view('welcome');
-    return view('template/layout2');
+    return view('template/layout');
 });
 
 Route::put('/updateStatusMuestra', 'MuestraController@update');
