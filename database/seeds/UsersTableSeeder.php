@@ -223,6 +223,11 @@ class UsersTableSeeder extends Seeder
 
                 [ 'name'=> 'Zumpahuacan','municipio'=> 'ZUMPAHUACAN','email'=> 'zumpahuacan@encuestasedesem.gob','password'=> bcrypt('123456') ],
                 [ 'name'=> 'Zumpango','municipio'=> 'ZUMPANGO','email'=> 'zumpango@encuestasedesem.gob','password'=> bcrypt('123456') ],
+
+
+                // usuarios administradores
+                [ 'name'=> 'admin1','municipio'=> '','email'=> 'admin1@encuestasedesem.gob','password'=> bcrypt('123456') ],
+                [ 'name'=> 'admin','municipio'=> '','email'=> 'admin@encuestasedesem.gob','password'=> bcrypt('123456') ],
                 
             )           
         );

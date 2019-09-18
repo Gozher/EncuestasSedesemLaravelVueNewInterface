@@ -16,8 +16,8 @@
 
     
 </template>
-
 <script>
+
 
 import { VueFlux, FluxPagination, Transitions } from 'vue-flux';
  

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,20 +8,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-<!--  <script src="{{asset('js/loader-chart-google.js')}}"></script>
-    <script src="{{asset('js/loader-google-charts-bar.js')}}"></script>
-    <script src="{{asset('js/jsapi-chart-google.js')}}"></script>-->
-
-  <title>ENCUESTA</title>
+  <title>ENCUESTAS SEDESEM</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{asset('css/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    
+  <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <!--<link href="{{asset('css/app.css')}}" rel="stylesheet">-->
+
 </head>
+
+
 
 <body id="page-top">
 
@@ -33,11 +31,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/inicio">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-1">
-          <br>
+        <br>
           <img src="{{asset('img/logoEdoMex.png')}}" width="80" height="75">
-          <br>
+          <br><br>
         </div>
         <div class="sidebar-brand-text mx-3">DESARROLLO SOCIAL</div>
       </a>
@@ -46,53 +44,41 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <br>
+      <li class="nav-item">
         <a class="nav-link" href="{{route('Encuesta.create')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-
-          <span>HOME</span></a>
+          <span>Dashboard</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
-        Menu principal
-      </div>
+      <div class="sidebar-heading"> </div>
 
-      <!-- Menu de registro-->
+      <!-- Nav Item - Menu de importacion de excel -->
+
+        <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-file-excel"></i>
-          
-          <span>Cargar datos</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Opciones</h6>
-            <a class="collapse-item" href="{{route('importGet')}}">Importar excel</a>            
-          </div>
-        </div>
+        <a class="nav-link" href="{{route('importGet')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Importar datos</span></a>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Menu de resultados -->
+    <hr class="sidebar-divider">
+
+      <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesDos" aria-expanded="true" aria-controls="collapseUtilitiesDos">
-          <!--<i class="fas fa-fw fa-wrench"></i>-->
-          <i class="fas fa-book"></i>
-          
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
           <span>Generar cuestionario</span>
         </a>
-        <div id="collapseUtilitiesDos" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Opciones</h6>
-            <a class="collapse-item" href="{{route('Preguntas.create')}}">Crear pregunta</a>
-            <a class="collapse-item" href="{{route('Respuestas.create')}}">Crear respuestas</a>            
+            <h6 class="collapse-header">opciones:</h6>
+            <a class="collapse-item" href="{{route('Preguntas.create')}}">Preguntas</a>
+            <a class="collapse-item" href="{{route('Respuestas.create')}}">Respuestas</a>            
           </div>
         </div>
       </li>
@@ -100,46 +86,19 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Menu de calificar -->
+    <!-- Nav Item - Charts -->
       <li class="nav-item">
-
-        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilitiesTres" aria-expanded="true" aria-controls="collapseUtilitiesTres">
-          <i class="fas fa-user-check"></i>
-          <span>Entrevistar</span>
-        </a>
-       <div id="collapseUtilitiesTres" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Opciones</h6>
-            <a class="collapse-item" href="{{route('Muestra.create')}}">Realizar entrevista</a>
-          </div>
-        </div>
+        <a class="nav-link" href="{{route('Muestra.create')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Entrevistar</span></a>
       </li>
 
-   <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Menu de historial -->
+      <!-- Nav Item - Charts -->
       <li class="nav-item">
-
-        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilitiesCuatro" aria-expanded="true" aria-controls="collapseUtilitiesCuatro">
-          <i class="fas fa-chart-bar"></i>
-          <span>Graficas</span>
-        </a>
-        <div id="collapseUtilitiesCuatro" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Opciones</h6>
-            <a class="collapse-item" href="{{route('Graficas.create')}}"  >Ver graficas</a>            
-            <a class="collapse-item" href="{{route('GraficasPorcentajes.index')}}">graficas personalizadas</a> 
-          </div>
-        </div>
+        <a class="nav-link" href="{{route('Graficas.create')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Gaficas</span></a>
       </li>
-
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-
-      </div>
-
 
 
       <!-- Divider -->
@@ -162,21 +121,38 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+         <!-- Sidebar Toggle (Topbar) -->
+         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+          <!--
 
-                               <!-- Authentication Links-->
-                               @guest
+             Nav Item - User Information
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+               
+               
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                         
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+
+
+                  Logout
+                </a>
+              </div>
+            </li>-->
+
+             <!-- Authentication Links -->
+                        @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -203,30 +179,24 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest                  
-
+                        @endguest
+                                                         
           </ul>
 
         </nav>
         <!-- End of Topbar -->
 
-
-
         <!-- Begin Page Content -->
+        <div class="container-fluid">
 
-
-        <div class="container">
-
-            @yield('content')
+          
+          @yield('content')
 
         </div>
         <!-- /.container-fluid -->
 
-
       </div>
       <!-- End of Main Content -->
-
-
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -249,6 +219,25 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+  <!-- Logout Modal
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -257,13 +246,12 @@
   <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{asset('js/js/sb-admin-2.min.js')}}"></script>
 
-  <!-- Page level plugins -->
-  <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
-
-
+  <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+  
 
 </body>
 
 </html>
+
+<!-- {{asset('')}}  -->

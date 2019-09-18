@@ -16,11 +16,17 @@ class MuestraController extends Controller
     public function index(Request $request)
     {
         //
-        $municipios= Auth::user()->municipio;        
-        //$DatosMuestra = Muestra::where('Municipio',$municipios)->get();     return $DatosMuestra;
-       $DatosMuestra = Muestra::where('Municipio',$municipios)->paginate(5);
+        $municipios= Auth::user()->municipio;    
 
+        //$DatosMuestra = Muestra::where('Municipio',$municipios)->paginate(5);
+
+      if($municipios != 'admin'){
             
+            $DatosMuestra = Muestra::where('Municipio',$municipios)->paginate(5);
+        }else{
+            $DatosMuestra = Muestra::paginate(5);
+        }
+          
         return [
             'pagination'=>[
                 'total'        => $DatosMuestra->total(),

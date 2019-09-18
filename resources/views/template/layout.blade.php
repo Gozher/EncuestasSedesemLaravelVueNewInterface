@@ -16,7 +16,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-  <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  <!--<link href="{{asset('css/app.css')}}" rel="stylesheet">-->
 
 </head>
 
@@ -59,14 +59,15 @@
       <!-- Nav Item - Menu de importacion de excel -->
 
         <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('importGet')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Importar datos</span></a>
-      </li>
-
-
+      @if(Auth::user()->name == 'admin' || Auth::user()->name == 'admin1')
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('importGet')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Importar datos</span></a>
+        </li>
+    
     <hr class="sidebar-divider">
+    
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
@@ -86,18 +87,21 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-    <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('Muestra.create')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Entrevistar</span></a>
-      </li>
-
+      
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('Graficas.create')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Gaficas</span></a>
+      </li>
+
+      @endif
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('Muestra.create')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Entrevistar</span></a>
       </li>
 
 
@@ -121,6 +125,11 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -242,7 +251,9 @@
   <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
   <!-- Custom scripts for all pages-->
+  <script src="{{asset('js/app.js')}}"></script>
   <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+  
 
 </body>
 
